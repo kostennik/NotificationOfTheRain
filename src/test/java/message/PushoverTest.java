@@ -3,6 +3,7 @@ package message;
 import config.PropertyValues;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class PushoverTest {
@@ -16,6 +17,7 @@ private String userKey;
         tokenKey = properties.getPropValue("pushover.tokenKey");
         userKey = properties.getPropValue("pushover.userKey");
     }
+    @Disabled
     @Test
     public void sendMessage() throws Exception {
         Pushover pushover = new Pushover(tokenKey);
