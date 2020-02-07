@@ -9,10 +9,11 @@ import lombok.*;
 @Setter
 public class Weather {
     private static HttpClient httpClient = new HttpClient();
-    double tempMin;
-    double tempMax;
-    String descriptionDay;
-    String descriptionNight;
+    private static final String url = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+    private double tempMin;
+    private double tempMax;
+    private String descriptionDay;
+    private String descriptionNight;
 
 
     public Weather(double tempMin, double tempMax, String descriptionDay, String descriptionNight) {
@@ -23,9 +24,9 @@ public class Weather {
     }
 
 
-    public static Weather getWeather(String url, String apiKey, String language, Boolean details, Boolean metric) throws Exception {
+    public static Weather getWeather(String cityCode, String apiKey, String language, String details, String metric) throws Exception {
 
-        String request = url + "?apikey=" + apiKey + "&language=" + language + "&details=" + details + "&metric=" + metric;
+        String request = url + cityCode + "?apikey=" + apiKey + "&language=" + language + "&details=" + details + "&metric=" + metric;
         String response = httpClient.sendGet(request);
 
         //parsing json-file with weather
