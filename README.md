@@ -1,4 +1,4 @@
-# app3
+# Notification of the Rain
 My Server Java Application - Rain Notification.
 
 API used:
